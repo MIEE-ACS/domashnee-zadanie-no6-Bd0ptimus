@@ -1,0 +1,51 @@
+﻿<Window x:Class="DZ6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DZ6"
+        mc:Ignorable="d"
+        Title="ДЗ 6. Группа УТС-22. Буй Тхе Зунг" Height="672.334" Width="800">
+    <Grid>
+        <Label Content="Cunrrency Converter" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" FontFamily="Swis721 BlkCn BT" FontSize="20" Height="39" Width="183"/>
+        <Grid Margin="10,137,569,411">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Sum" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0" FontFamily="RomanC"/>
+            <TextBox x:Name="input" FontFamily="RomanC" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="205" Margin="0,47,0,0" TextAlignment="Center" FontSize="20" Grid.ColumnSpan="2" Cursor="Hand" TextChanged="CheckInputFormat"/>
+        </Grid>
+        <Grid Margin="246,137,428,411" Cursor="Hand">
+            <Label Content="Currency" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0" FontFamily="RomanC" Width="120"/>
+            <ComboBox x:Name="Currency" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="0,47,0,0" Height="33" SelectionChanged="CheckInputFormat">
+                <Label Content="Dollar" Background="Snow" VerticalAlignment="Center" Width="94" Cursor="Hand"/>
+                <Label Content="Euro" Background="Snow" VerticalAlignment="Center" Width="93" Cursor="Hand"/>
+                <Label Content="Yuan" Background="Snow" VerticalAlignment="Center" Width="93" Cursor="Hand"/>
+            </ComboBox>
+        </Grid>
+        <Button x:Name="EnterButton" IsEnabled="False" Content="Exchange" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="394,185,0,0" Height="32" Cursor="Hand" RenderTransformOrigin="-0.1,0.537" Click="EnterButton_Click"/>
+        <Grid Margin="10,230,428,308">
+
+            <TextBox x:Name="Result" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" Margin="0,37,0,0" FontFamily="RomanC" FontSize="20" IsEnabled="False"/>
+            <Label Content="RUB" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="301,37,0,0"/>
+        </Grid>
+        <Label x:Name="Warning" Foreground="Red" Visibility="Visible"  Content="Enter A Number!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,163,0,0" Width="204" FontSize="9"/>
+        <Label x:Name="WarningExchange" Foreground="Red" Visibility="Visible"  Content="Choose Exchange Cunrrency!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="246,163,0,0" Width="268" FontSize="9"/>
+        <Grid Margin="0,333,0,0">
+            <ListView x:Name="ListObj" HorizontalAlignment="Left" Height="298" VerticalAlignment="Top" Width="508" Margin="10,0,0,0" SelectionChanged="ListObj_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="No Object" Width="120" DisplayMemberBinding="{Binding NumberObjOutput}"/>
+                        <GridViewColumn Header="Object" Width="120" DisplayMemberBinding="{Binding ObjType}"/>
+                        <GridViewColumn Header="Amount Input" Width="120" DisplayMemberBinding="{Binding Input}"/>
+                        <GridViewColumn Header="Result" Width="120" DisplayMemberBinding="{Binding GetResult}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="RemoveBtn" Content="Remove" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="30" Margin="616,87,0,0" Click="RemoveBtn_Click" IsEnabled="False"/>
+            <Button x:Name="CompareObjBtn" Content="Compare Objects" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="30" Margin="616,134,0,0" IsEnabled="False" Click="CompareObjBtn_Click"/>
+
+        </Grid>
+    </Grid>
+</Window>
